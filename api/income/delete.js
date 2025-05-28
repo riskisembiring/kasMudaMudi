@@ -2,9 +2,8 @@ import { db } from '../../config/firebase-config.js';
 import { doc, deleteDoc } from 'firebase/firestore';
 
 export default async function handler(req, res) {
-  // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Bisa diganti sesuai origin web kamu
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
     'Access-Control-Allow-Headers',
@@ -15,9 +14,9 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  if (req.method === 'DELETE') {
-    const { id } = req.query;
+  const { id } = req.query; // ✅ menangkap dari URL path /delete/[id]
 
+  if (req.method === 'DELETE') {
     if (!id) {
       return res.status(400).json({
         success: false,
