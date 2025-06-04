@@ -1,10 +1,9 @@
-import { db } from '../config/firebase-config.js';
+import { db } from '../config/firebase-config.js'; // sesuaikan path jika di dalam /api/income/index.js
 import { collection, getDocs, addDoc, doc, deleteDoc } from 'firebase/firestore';
 
 export default async function handler(req, res) {
-  // CORS headers (bisa pakai middleware tapi ini simpel)
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
