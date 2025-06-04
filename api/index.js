@@ -9,8 +9,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/income', incomeRoutes);
+// HILANGKAN prefix '/api' karena sudah otomatis oleh folder /api di Vercel
+app.use('/auth', authRoutes);
+app.use('/income', incomeRoutes);
 
 export const handler = serverless(app);
 
