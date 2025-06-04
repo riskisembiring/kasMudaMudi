@@ -1,4 +1,4 @@
-import { db } from '../../config/firebase-config.js';
+import { db } from '../config/firebase-config.js';
 import { collection, getDocs, addDoc, doc, deleteDoc } from 'firebase/firestore';
 
 export default async function handler(req, res) {
