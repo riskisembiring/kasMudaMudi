@@ -3,8 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import serverless from 'serverless-http';
 
-import authRoutes from './routes/auth.js';
-import incomeRoutes from './routes/income.js';
+import authRoutes from './api/routes/auth.js';
+import incomeRoutes from './api/routes/income.js';
 
 const app = express();
 app.use(cors());
